@@ -1,0 +1,12 @@
+[Unit]
+Description=flatpak Automatic Update
+Documentation=man:flatpak(1)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=output=$(/usr/bin/flatpak update -y) && num_apps=$(echo "$output" | grep -c "Updating app") ; num_packages=$(echo "$output" | grep -c "Updating runtime") && [ "$num_packages" -gt 0 ] && /usr/bin/notify-send -a "Updates" "Flatpaks updated" "$num_apps Apps, $num_packages Packages"
+
+[Install]
+WantedBy=multi-user.target
