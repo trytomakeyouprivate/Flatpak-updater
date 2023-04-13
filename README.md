@@ -4,8 +4,8 @@ Flatpaks don't autoupdate without a GUI store. But using this systemd service th
 Install
 
 ```
-wget https://github.com/trytomakeyouprivate/Flatpak-updater/raw/main/flatpak-automatic.service -qO ~/.local/share/systemd/user/
-wget https://github.com/trytomakeyouprivate/Flatpak-updater/raw/main/flatpak-automatic.timer -qO ~/.local/share/systemd/user/
+wget https://github.com/trytomakeyouprivate/Flatpak-updater/raw/main/flatpak-automatic.service -p ~/.local/share/systemd/user/
+wget https://github.com/trytomakeyouprivate/Flatpak-updater/raw/main/flatpak-automatic.timer -p ~/.local/share/systemd/user/
 
 systemctl enable flatpak-automatic
 ```
